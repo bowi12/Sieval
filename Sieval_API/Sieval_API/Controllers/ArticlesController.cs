@@ -21,14 +21,14 @@ namespace Sieval_API.Controllers
             _context = context;
         }
 
-        // GET: api/ArticleItems
+        // GET: api/Articles
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Article>>> GetArticles()
         {
             return await _context.Article.ToListAsync();
         }
 
-        // GET: api/ArticleItems/5
+        // GET: api/Articles/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Article>> GetArticle(int id)
         {
@@ -42,8 +42,7 @@ namespace Sieval_API.Controllers
             return article;
         }
 
-        // PUT: api/ArticleItems/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // PUT: api/Articles/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArticle(int id, Article article)
         {
@@ -73,10 +72,9 @@ namespace Sieval_API.Controllers
             return NoContent();
         }
 
-        // POST: api/ArticleItems
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/Articles
         [HttpPost]
-        public async Task<ActionResult<Article>> PostArticlem(Article article)
+        public async Task<ActionResult<Article>> PostArticle(Article article)
         {
             _context.Article.Add(article);
             await _context.SaveChangesAsync();
@@ -84,7 +82,7 @@ namespace Sieval_API.Controllers
             return CreatedAtAction("GetArticle", new { id = article.id }, article);
         }
 
-        // DELETE: api/ArticleItems/5
+        // DELETE: api/Articles/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteArticle(int id)
         {
